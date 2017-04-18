@@ -1,16 +1,11 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "Sports";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 @model IEnumerable<Sports.Models.Team>
 
-<html>
-<head>
-    <title>Sports</title>
-</head>
-<body>
+
     <h2>Sports Teams</h2>
     <h4>@Html.DisplayNameFor(model => model.Name)</h4>
     <ul>
@@ -20,5 +15,3 @@
         }
     </ul>
     <p>@Html.ActionLink("Add new team", "Create")</p>
-</body>
-</html>
