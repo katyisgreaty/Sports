@@ -1,0 +1,28 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Sports.Models.Team
+
+<html>
+<head>
+    <title>Team - Create</title>
+</head>
+<body>
+    <h2>Create</h2>
+    <hr />
+    <h4>Add a new team</h4>
+    @using (Html.BeginForm())
+    {
+        @Html.LabelFor(model => model.Name)
+        @Html.TextBoxFor(model => model.Name)
+        @Html.LabelFor(model => model.Players)
+        @Html.TextBoxFor(model => model.Players)
+        @Html.LabelFor(model => model.Captain)
+        @Html.TextBoxFor(model => model.Captain)
+        <input type="submit" value="Add new team" />
+    }
+    <p>@Html.ActionLink("Back to list", "Index")</p>
+</body>
+</html>
