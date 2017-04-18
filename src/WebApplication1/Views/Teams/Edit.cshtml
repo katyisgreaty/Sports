@@ -21,6 +21,10 @@
         @Html.LabelFor(model => model.Players)
         @Html.EditorFor(model => model.Players)
 
+        @Html.LabelFor(model => model.DivisionId)
+        @Html.DropDownList("DivisionId")
+
+
         <input type="submit" value="Save"/>
     }
     <p>@Html.ActionLink("Back to list", "Index")</p>

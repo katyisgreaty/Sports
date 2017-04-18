@@ -16,5 +16,6 @@ namespace Sports.Models
         public string Captain { get; set; }
         public int DivisionId { get; set; }
         public string Name { get; set; }
+        public virtual Division Division { get; set; }
     }
 }

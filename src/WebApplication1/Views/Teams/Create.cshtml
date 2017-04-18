@@ -15,6 +15,10 @@
         @Html.TextBoxFor(model => model.Players)
         @Html.LabelFor(model => model.Captain)
         @Html.TextBoxFor(model => model.Captain)
+
+        @Html.LabelFor(model => model.DivisionId)
+        @Html.DropDownList("DivisionId")
+
         <input type="submit" value="Add new team" />
     }
     <p>@Html.ActionLink("Back to list", "Index")</p>

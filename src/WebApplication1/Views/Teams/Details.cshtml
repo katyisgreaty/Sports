@@ -4,8 +4,9 @@
 }
 @model Sports.Models.Team
 
-
     <h2>Details</h2>
     <hr />
-    @Html.DisplayFor(model => model.Name): @Html.DisplayFor(model => model.Players), Captain: @Html.DisplayFor(model => model.Captain)
-    <p>@Html.ActionLink("Back to list", "Index")</p>
+   <p>@Html.DisplayFor(model => model.Name): @Html.DisplayFor(model => model.Players)</p> <p>Captain: @Html.DisplayFor(model => model.Captain)</p>
+    <p>@Html.DisplayNameFor(model => model.DivisionId) : @Html.DisplayFor(model => model.DivisionId)</p>
+
+    <p>@Html.ActionLink("Edit", "Edit", new { id = Model.TeamId }) | @Html.ActionLink("Back to list", "Index")</p>

@@ -8,6 +8,7 @@ namespace Sports.Models
 {
     public class SportsContext : DbContext
     {
+        public virtual DbSet<Division> Divisions { get; set;  }
         public virtual DbSet<Team> Teams { get; set;  }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)

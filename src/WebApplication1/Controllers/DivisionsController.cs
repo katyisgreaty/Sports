@@ -5,68 +5,65 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Sports.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc.Rendering;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Sports.Controllers
 {
-    public class TeamsController : Controller
+    public class DivisionsController : Controller
     {
         private SportsContext db = new SportsContext();
         public IActionResult Index()
         {
-            return View(db.Teams.Include(i => i.Division).ToList());
+            return View(db.Divisions.ToList());
         }
 
         public IActionResult Details(int id)
         {
-            var thisTeam = db.Teams.FirstOrDefault(teams => teams.TeamId == id);
-            return View(thisTeam);
+            var thisDivision = db.Divisions.FirstOrDefault(divisions => divisions.DivisionId == id);
+            return View(thisDivision);
         }
 
         public IActionResult Create()
         {
-            ViewBag.DivisionId = new SelectList(db.Divisions, "DivisionId", "Name");
             return View();
         }
 
         [HttpPost]
-        public IActionResult Create(Team team)
+        public IActionResult Create(Division division)
         {
-            db.Teams.Add(team);
+            db.Divisions.Add(division);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
 
         public IActionResult Edit(int id)
         {
-            var thisTeam = db.Teams.FirstOrDefault(teams => teams.TeamId == id);
-            ViewBag.DivisionId = new SelectList(db.Divisions, "DivisionId", "Name");
-            return View(thisTeam); 
+            var thisDivision = db.Divisions.FirstOrDefault(divisions => divisions.DivisionId == id);
+            return View(thisDivision);
         }
 
         [HttpPost]
-        public IActionResult Edit (Team team)
+        public IActionResult Edit(Division division)
         {
-            db.Entry(team).State = EntityState.Modified;
+            db.Entry(division).State = EntityState.Modified;
             db.SaveChanges();
-            return RedirectToAction("Index"); 
+            return RedirectToAction("Index");
         }
 
         public IActionResult Delete(int id)
         {
-            var thisTeam = db.Teams.FirstOrDefault(teams => teams .TeamId == id);
-            return View(thisTeam);
+            var thisDivision = db.Divisions.FirstOrDefault(divisions => divisions.DivisionId == id);
+            return View(thisDivision);
         }
 
         [HttpPost, ActionName("Delete")]
         public IActionResult DeleteConfirmed(int id)
         {
-            var thisTeam = db.Teams.FirstOrDefault(teams => teams.TeamId == id);
-            db.Teams.Remove(thisTeam);
+            var thisDivision = db.Divisions.FirstOrDefault(divisions => divisions.DivisionId == id);
+            db.Divisions.Remove(thisDivision);
             db.SaveChanges();
-            return RedirectToAction("Index"); 
+            return RedirectToAction("Index");
         }
     }
 }
